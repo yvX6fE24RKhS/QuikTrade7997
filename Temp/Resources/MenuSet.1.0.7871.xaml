@@ -1,0 +1,21 @@
+﻿<!-- <version>1.0.7871.* : none</version> -->
+<ResourceDictionary  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:local="clr-namespace:QuikTrade"
+                     xmlns:commands="clr-namespace:QuikTrade.Commands;assembly=QuikTrade"
+                     >
+   <Set x:Key="MainMenuSet" x:Shared="True">
+      <MenuItem x:Name="MainItemFile" Header="Файл">
+         <!--<MenuItem x:Name="MainItemShowMainControlPanel" Header="Настройки" Command="{x:Static commands:ViewModelCommands.CreateTabConnectionStringCommand}"/>-->
+         <Separator/>
+         <MenuItem x:Name="MainItemClose" Header="Выход" Command="Close" InputGestureText="Alt+F4"/>
+      </MenuItem>
+      <MenuItem x:Name="MainItemTest" Header="_Test">
+         <!--<MenuItem x:Name="Test" Header="Run Test" Command=""/>-->
+         <MenuItem x:Name="Test" Header="Run Test" Command="{x:Static commands:ViewModelCommands.TestCommand}"/>
+      </MenuItem>
+      <!--<MenuItem x:Name="MainItemWindow" Header="Окно">
+         <MenuItem x:Name="MainItemCloseAllTabs" Header="Закрыть все вкладки" Command="{x:Static commands:ViewModelCommands.CloseAllTabsCommand}"/>
+      </MenuItem>-->
+   </Set>
+</ResourceDictionary>

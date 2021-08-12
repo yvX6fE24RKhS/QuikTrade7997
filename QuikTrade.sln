@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuikTrade", "QuikTrade\QuikTrade.csproj", "{B4C163E2-1B89-492A-AC10-FBCFF117E700}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DockPanelSplitter", "DockPanelSplitter\DockPanelSplitter.csproj", "{60BCD395-0A26-406A-862A-615457CBFD8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foundation", "Foundation\Foundation.csproj", "{2A139DCD-07D8-435F-97D5-A04019F553DC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Misc", "_Misc", "{1A53FB7F-3C9D-456F-93AC-C4BFED187111}"
+	ProjectSection(SolutionItems) = preProject
+		QuikTrade\bin\Debug\MainViewModel.json = QuikTrade\bin\Debug\MainViewModel.json
+		QuikTrade\bin\Debug\Log\test.log.json = QuikTrade\bin\Debug\Log\test.log.json
+		QuikTrade\bin\Debug\Log\test.log.xml = QuikTrade\bin\Debug\Log\test.log.xml
+	EndProjectSection
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "_Archive", "Temp\_Archive.shproj", "{99FDFD21-A019-46F4-ACAA-3CA886846E33}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Temp\Temp.projitems*{99fdfd21-a019-46f4-acaa-3ca886846e33}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B4C163E2-1B89-492A-AC10-FBCFF117E700}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4C163E2-1B89-492A-AC10-FBCFF117E700}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4C163E2-1B89-492A-AC10-FBCFF117E700}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4C163E2-1B89-492A-AC10-FBCFF117E700}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60BCD395-0A26-406A-862A-615457CBFD8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60BCD395-0A26-406A-862A-615457CBFD8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60BCD395-0A26-406A-862A-615457CBFD8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60BCD395-0A26-406A-862A-615457CBFD8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A139DCD-07D8-435F-97D5-A04019F553DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A139DCD-07D8-435F-97D5-A04019F553DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A139DCD-07D8-435F-97D5-A04019F553DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A139DCD-07D8-435F-97D5-A04019F553DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {67FD2C28-6EA4-405B-92AD-C5E35558CD66}
+	EndGlobalSection
+EndGlobal

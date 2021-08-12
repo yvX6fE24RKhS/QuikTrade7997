@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>99fdfd21-a019-46f4-acaa-3ca886846e33</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Temp</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)App.1.0.7878.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Resources\MenuSet.1.0.7871.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Resources\Styles.1.0.7867.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\MainView.1.0.7871.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)_Temp\Z_MainView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)App.1.0.7878.xaml.cs">
+      <DependentUpon>App.1.0.7878.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)App.1.0.7881.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>App.1.0.7881.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\ViewModelCommands.RunTest.1.0.7881.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Log.1.0.7878.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Log.1.0.7881.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\LogEvent.1.0.7878.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\Interfaces\ILog.1.0.7881.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\SerializeExtention.1.0.7881.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainViewModel.1.0.7878.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\DebugExtension.1.0.7878.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\Enums\Initiator.1.0.7878.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\Enums\Severity.1.0.7878.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\EventInfo.1.0.7878.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\Interfaces\IEventInfo.1.0.7878.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\Interfaces\ILog.1.0.7878.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\Interfaces\ILogEvent.1.0.7878.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\LogPath.1.0.7878.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\SerializeExtention.1.0.7867.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\ViewModelCommands.1.0.7871.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\ViewModelCommands.RunTest.1.0.7871.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\MainView.1.0.7871.xaml.cs">
+      <DependentUpon>MainView.1.0.7871.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)App.1.0.7867.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>App.1.0.7867.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)_Temp\Z_MainView.xaml.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)_Temp\Z_MainViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)_Temp\Z_ViewModelCommands.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.1.0.7867.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.1.0.7881.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)ViewModels\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Resources\" />
+  </ItemGroup>
+</Project>
