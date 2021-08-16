@@ -15,10 +15,26 @@
     <Page Include="$(MSBuildThisFileDirectory)Resources\MenuSet.1.0.7871.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Resources\MenuSet.1.0.7898.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)Resources\Styles.1.0.7867.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Resources\Styles.1.0.7898.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Resources\Templates.1.0.7898.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)Views\MainView.1.0.7871.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\MainView.1.0.7898.xaml">
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)_Temp\Z_MainView.xaml">
@@ -33,12 +49,21 @@
       <SubType>Code</SubType>
       <DependentUpon>App.1.0.7881.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)App.1.0.7898.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>App.1.0.7898.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\ViewModelCommands.1.0.7898.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Commands\ViewModelCommands.RunTest.1.0.7881.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\ViewModelCommands.TabCommands.1.0.7898.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Log.1.0.7878.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Log.1.0.7881.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\LogEvent.1.0.7878.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\ControlExtension.1.0.7898.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\DebugExtension.1.0.7898.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\Interfaces\ILog.1.0.7881.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\SerializeExtention.1.0.7881.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\TabCounter.1.0.7898.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainViewModel.1.0.7878.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\DebugExtension.1.0.7878.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\Enums\Initiator.1.0.7878.cs" />
@@ -51,12 +76,18 @@
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\SerializeExtention.1.0.7867.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Commands\ViewModelCommands.1.0.7871.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Commands\ViewModelCommands.RunTest.1.0.7871.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainViewModel.1.0.7898.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\TabItemSampleViewModel.1.0.7898.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\WorkspaceViewModel.1.0.7898.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\MainView.1.0.7871.xaml.cs">
       <DependentUpon>MainView.1.0.7871.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)App.1.0.7867.xaml.cs">
       <SubType>Code</SubType>
       <DependentUpon>App.1.0.7867.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\MainView.1.0.7898.xaml.cs">
+      <DependentUpon>MainView.1.0.7898.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)_Temp\Z_MainView.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)_Temp\Z_MainViewModel.cs" />
@@ -69,9 +100,9 @@
     <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.1.0.7881.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)ViewModels\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Resources\" />
+    <ApplicationDefinition Include="$(MSBuildThisFileDirectory)App.1.0.7898.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
   </ItemGroup>
 </Project>
