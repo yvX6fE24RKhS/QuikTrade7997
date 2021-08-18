@@ -18,7 +18,7 @@ namespace QuikTrade.Commands
       #region Methods
 
       /// <summary>
-      /// Открывает новую вкладку
+      /// Открывает новую вкладку.
       /// </summary>
       /// <param name="itemType">Тип вкладки (рабочего пространства).</param>
       public static void CreateTab(Type itemType)
@@ -108,7 +108,7 @@ namespace QuikTrade.Commands
       }
 
       /// <summary>
-      /// Закрывает все вкладки
+      /// Закрывает все вкладки.
       /// </summary>
       /// <param name="sender">Объект, создавший событие.</param>
       /// <param name="e">Аргументы события.</param>
@@ -137,7 +137,7 @@ namespace QuikTrade.Commands
       }
 
       /// <summary>
-      /// Закрывает вкладку
+      /// Закрывает вкладку.
       /// </summary>
       /// <param name="sender">Объект, создавший событие.</param>
       /// <param name="e">Аргументы события.</param>
@@ -182,7 +182,7 @@ namespace QuikTrade.Commands
       }
 
       /// <summary>
-      /// Закрывает другие вкладки такого же типа
+      /// Закрывает другие вкладки такого же типа.
       /// </summary>
       /// <param name="sender">Объект, создавший событие.</param>
       /// <param name="e">Аргументы события.</param>
@@ -215,7 +215,7 @@ namespace QuikTrade.Commands
       }
 
       /// <summary>
-      /// Закрывает все вкладки такого же типа
+      /// Закрывает все вкладки такого же типа.
       /// </summary>
       /// <param name="sender">Объект, создавший событие.</param>
       /// <param name="e">Аргументы события.</param>
@@ -249,7 +249,7 @@ namespace QuikTrade.Commands
       }
 
       /// <summary>
-      /// Закрывает другие вкладки
+      /// Закрывает другие вкладки.
       /// <param name="sender">Объект, создавший событие.</param>
       /// <param name="e">Аргументы события.</param>      /// </summary>
       internal static void CloseOtherTabs(object sender, RoutedEventArgs e)

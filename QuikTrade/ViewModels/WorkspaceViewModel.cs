@@ -1,13 +1,16 @@
 ﻿using System;
 using Foundation;
 using System.Runtime.Serialization;
+using System.Windows;
+using System.Windows.Controls;
+using System.Web.UI.WebControls;
 
 namespace QuikTrade.ViewModels
 {
    /// <summary>
    /// Модель представления рабочего пространства.
    /// </summary>
-   /// <version>1.0.7898.* : none</version>
+   /// <version>1.0..* : 1.0.7898.*</version>
    [DataContract]
    public abstract class WorkspaceViewModel : ViewModel
    {
@@ -17,7 +20,7 @@ namespace QuikTrade.ViewModels
       /// Идентификатор рабочего пространства.
       /// </summary>
       [DataMember]
-      public Guid Uid { get; set; }
+      public Guid Uid { get; set; } = Guid.NewGuid();
 
       /// <summary>
       /// Заголовок рабочего пространства.
@@ -30,6 +33,12 @@ namespace QuikTrade.ViewModels
       /// </summary>
       [DataMember]
       public bool IsSelected { get; set; }
+
+      /// <summary>
+      /// Контент рабочего пространства.
+      /// </summary>
+      [DataMember]
+      public abstract object Content { get; set; } 
 
       #endregion Properties
 

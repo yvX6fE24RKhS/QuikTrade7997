@@ -4,7 +4,7 @@ using System.Windows.Media;
 namespace QuikTrade.Utilities
 {
    /// <summary>
-   /// Методы работы ч деревом элементов управления.
+   /// Методы работы с деревом элементов управления.
    /// </summary>
    /// <version>1.0.7898.* : none</version>
    internal class ControlExtension

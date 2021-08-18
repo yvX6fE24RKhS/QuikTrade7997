@@ -26,7 +26,7 @@ namespace QuikTrade.Utilities
       #region Properties
 
       /// <summary>
-      /// Счетчик однотипных вкладок
+      /// Счетчик однотипных вкладок.
       /// </summary>
       [DataMember]
       internal int Count { get; set; }
@@ -42,12 +42,12 @@ namespace QuikTrade.Utilities
       #region Constructors
 
       /// <summary>
-      /// Задать размерность по умолчанию.
+      /// Инициализирует новый экземпляр класса <see cref="TabCounter"/> с установкой размерности по умолчанию.
       /// </summary>
       public TabCounter() : this(MaxCountDefault) { }
 
       /// <summary>
-      /// Задать размерность.
+      /// Инициализирует новый экземпляр класса <see cref="TabCounter"/> с установкой размерности.
       /// </summary>
       /// <param name="maxCount">Максималльное количество однотипных вкладок.</param>
       public TabCounter(int maxCount) => this.MaxCount = maxCount;

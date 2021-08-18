@@ -36,6 +36,7 @@ namespace QuikTrade.ViewModels
       }
 
       #region DockPanelChangeableProperties
+
       /// <summary>
       /// Ширина главной панели управления.
       /// </summary>
@@ -45,6 +46,7 @@ namespace QuikTrade.ViewModels
          get { return Get(() => this.MainControlPanelWidth, 80); }
          set { Set(() => this.MainControlPanelWidth, value); }
       }
+      
       #endregion DockPanelChangeableProperties
 
       #region Workspaces
@@ -70,7 +72,7 @@ namespace QuikTrade.ViewModels
       }
 
       /// <summary>
-      /// Активная вкладка
+      /// Активная вкладка.
       /// </summary>
       [DataMember]
       public WorkspaceViewModel SelectedTab

@@ -22,8 +22,8 @@ namespace Foundation
       {
          get
          {
-            return PropertyBindings.ContainsKey(propertyName)
-                ? PropertyBindings[propertyName].InvokeValidation()
+            return this.PropertyBindings.ContainsKey(propertyName)
+                ? this.PropertyBindings[propertyName].InvokeValidation()
                 : null;
          }
       }
@@ -33,9 +33,9 @@ namespace Foundation
          get
          {
             var propertyName = GetPropertyName(expression);
-            if (!PropertyBindings.ContainsKey(propertyName))
-               PropertyBindings.Add(propertyName, new PropertyBinding(propertyName));
-            return PropertyBindings[propertyName];
+            if (!this.PropertyBindings.ContainsKey(propertyName))
+               this.PropertyBindings.Add(propertyName, new PropertyBinding(propertyName));
+            return this.PropertyBindings[propertyName];
          }
       }
 
@@ -43,9 +43,9 @@ namespace Foundation
       {
          get
          {
-            if (!CommandBindings.ContainsKey(command))
-               CommandBindings.Add(command, new CommandBinding(command));
-            return CommandBindings[command];
+            if (!this.CommandBindings.ContainsKey(command))
+               this.CommandBindings.Add(command, new CommandBinding(command));
+            return this.CommandBindings[command];
          }
       }
 
@@ -87,8 +87,8 @@ namespace Foundation
       [OnDeserializing]
       private void Initialize(StreamingContext context = default(StreamingContext))
       {
-         CommandBindings = new Dictionary<ICommand, CommandBinding>();
-         PropertyBindings = new Dictionary<string, PropertyBinding>();
+         this.CommandBindings = new Dictionary<ICommand, CommandBinding>();
+         this.PropertyBindings = new Dictionary<string, PropertyBinding>();
          PropertyChanging += OnPropertyChanging;
          PropertyChanged += OnPropertyChanged;
       }
@@ -96,16 +96,16 @@ namespace Foundation
       private void OnPropertyChanging(object sender, PropertyChangingEventArgs e)
       {
          var propertyName = e.PropertyName;
-         if (!PropertyBindings.ContainsKey(propertyName)) return;
-         var binding = PropertyBindings[propertyName];
+         if (!this.PropertyBindings.ContainsKey(propertyName)) return;
+         var binding = this.PropertyBindings[propertyName];
          if (binding != null) binding.InvokePropertyChanging(sender, e);
       }
 
       private void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
       {
          var propertyName = e.PropertyName;
-         if (!PropertyBindings.ContainsKey(propertyName)) return;
-         var binding = PropertyBindings[propertyName];
+         if (!this.PropertyBindings.ContainsKey(propertyName)) return;
+         var binding = this.PropertyBindings[propertyName];
          if (binding != null) binding.InvokePropertyChanged(sender, e);
       }
    }
