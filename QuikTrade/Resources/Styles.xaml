@@ -1,4 +1,4 @@
-﻿<!-- <version>1.0..* : 1.0.7898.*</version> -->
+﻿<!-- <version>1.0.7900.* : 1.0.7898.*</version> -->
 <ResourceDictionary  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                      xmlns:osc="clr-namespace:OpenSourceControls;assembly=DockPanelSplitter"

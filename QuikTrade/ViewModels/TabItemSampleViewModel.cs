@@ -1,16 +1,12 @@
 ﻿using System.Runtime.Serialization;
-using System.Web.UI.WebControls;
-using Foundation;
-using System.Windows.Controls;
 
 namespace QuikTrade.ViewModels
 {
    /// <summary>
-   /// Пример вкладки
+   /// Пример вкладки.
    /// </summary>
-   /// <version>1.0..* : 1.0.7898.*</version>
+   /// <version>1.0.7900.* : 1.0.7898.*</version>
    [DataContract]
-   [KnownType(typeof(TabItemSampleViewModel))]
    public class TabItemSampleViewModel : WorkspaceViewModel
    {
       #region Fields

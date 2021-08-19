@@ -7,7 +7,7 @@ namespace QuikTrade.Utilities
    /// <summary>
    /// Интерфейс класса журнала приложения.
    /// </summary>
-   /// <version>1.0.7881.* : 1.0.7878.*</version>
+   /// <version>1.0.7901.* : 1.0.7881.*</version>
    public interface ILog
    {
       #region Properties
@@ -21,6 +21,11 @@ namespace QuikTrade.Utilities
       /// Содержание журнала.
       /// </summary>
       ObservableCollection<LogEvent> LogEvents { get; set; }
+
+      /// <summary>
+      /// Последнее событие.
+      /// </summary>
+      LogEvent LastEvent { get; set; }
 
       #endregion Properties
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace QuikTrade.ViewModels
    /// <summary>
    /// Модель представления основного окна.
    /// </summary>
-   /// <version>1.0.7898.* : 1.0.7878.*</version>
+   /// <version>1.0.7901.* : 1.0.7898.*</version>
    [DataContract]
    [KnownType(typeof(TabItemSampleViewModel))]
    public class MainViewModel : ViewModel
@@ -33,6 +34,14 @@ namespace QuikTrade.ViewModels
       {
          get { return Get(() => this.AssemblyVersion, DebugExtension.GetAssemblyVersion()); }
          set { Set(() => this.AssemblyVersion, DebugExtension.GetAssemblyVersion()); }
+      }
+
+      /// <summary>
+      /// 
+      /// </summary>
+      public string LastEventMessage {
+         get { return Get(() => this.LastEventMessage, App.Log.LastEvent.Message); }
+         set { Set(() => this.LastEventMessage, value); }
       }
 
       #region DockPanelChangeableProperties
@@ -90,6 +99,7 @@ namespace QuikTrade.ViewModels
       /// </summary>
       public MainViewModel() : base()
       {
+         this.LastEventMessage = "test";
       }
       #endregion Constructors
 
@@ -106,6 +116,7 @@ namespace QuikTrade.ViewModels
          string msg = "Отладка: MainViewModel.Initialize(StreamingContext streamingContext = default(StreamingContext)) executing";
          System.Diagnostics.Debug.WriteLine(msg);
 #endif
+
          InitializeWorkspace();
 
          InitialazeCommandCollection();
@@ -165,6 +176,19 @@ namespace QuikTrade.ViewModels
          this[ViewModelCommands.CloseAllSameTabsCommand].Executed += (sender, args) => ViewModelCommands.CloseAllSameTabs(sender, args);
 
          this[ViewModelCommands.CloseOtherTabsCommand].Executed += (sender, args) => ViewModelCommands.CloseOtherTabs(sender, args);
+
+         App.Log.LogEvents.CollectionChanged += (sender, args) => GetLastLogedMessage();
+      }
+
+      /// <summary>
+      /// Считывает последнее сообщение из журнала.
+      /// </summary>
+      private void GetLastLogedMessage()
+      {
+#if DEBUG
+         Debug.WriteLine(message: $"Отладка: {DebugExtension.GetCallerMemberName(this)} executed. ");
+#endif
+         this.LastEventMessage = App.Log.LastEvent.Message; 
       }
 
       /// <summary>

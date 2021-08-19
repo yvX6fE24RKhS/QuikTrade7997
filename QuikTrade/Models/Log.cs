@@ -10,7 +10,7 @@ namespace QuikTrade.Models
    /// <summary>
    /// Журнал приложения.
    /// </summary>
-   /// <version>1.0.7881.* : 1.0.7878.*</version>
+   /// <version>1.0.7901.* : 1.0.7881.*</version>
    public class Log : ILog
    {
       #region Fields
@@ -42,6 +42,11 @@ namespace QuikTrade.Models
       /// Содержание журнала.
       /// </summary>
       public ObservableCollection<LogEvent> LogEvents { get; set; } = new ObservableCollection<LogEvent>();
+
+      /// <summary>
+      /// Последнее событие.
+      /// </summary>
+      public LogEvent LastEvent { get; set; }
 
       #endregion ILog Members
       #endregion Properties
@@ -76,6 +81,7 @@ namespace QuikTrade.Models
       /// <param name="logEvent">Запись о событии.</param>
       public void Append(LogEvent logEvent)
       {
+         this.LastEvent = logEvent;
          this.LogEvents.Add(logEvent);
       }
 
@@ -95,7 +101,7 @@ namespace QuikTrade.Models
             Message = e.Message
          };
 
-         this.LogEvents.Add(logItem);
+         Append(logItem);
       }
 
       /// <summary>

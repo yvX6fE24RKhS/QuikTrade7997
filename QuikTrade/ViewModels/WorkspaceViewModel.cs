@@ -10,7 +10,7 @@ namespace QuikTrade.ViewModels
    /// <summary>
    /// Модель представления рабочего пространства.
    /// </summary>
-   /// <version>1.0..* : 1.0.7898.*</version>
+   /// <version>1.0.7900.* : 1.0.7898.*</version>
    [DataContract]
    public abstract class WorkspaceViewModel : ViewModel
    {

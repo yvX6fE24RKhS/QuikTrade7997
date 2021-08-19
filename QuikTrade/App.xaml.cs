@@ -18,7 +18,7 @@ namespace QuikTrade
       /// <summary>
       /// Журнал текущей сессии.
       /// </summary>
-      internal static Log Log { get; set; }
+      public static Log Log { get; set; }
 
       /// <summary>
       /// Модель представления основного окна.
