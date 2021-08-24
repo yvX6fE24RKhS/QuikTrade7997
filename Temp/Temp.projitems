@@ -62,6 +62,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Commands\ViewModelCommands.TabCommands.1.0.7898.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Log.1.0.7878.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Log.1.0.7881.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Log.1.0.7901.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\LogEvent.1.0.7878.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\ControlExtension.1.0.7898.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\DebugExtension.1.0.7898.cs" />
