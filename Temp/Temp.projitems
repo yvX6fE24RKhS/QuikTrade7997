@@ -26,6 +26,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Resources\Styles.1.0.7900.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)Resources\Templates.1.0.7898.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
