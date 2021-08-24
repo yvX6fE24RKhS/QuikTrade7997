@@ -34,10 +34,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Resources\Templates.1.0.7901.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)Views\MainView.1.0.7871.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Views\MainView.1.0.7898.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Views\MainView.1.0.7901.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -67,6 +75,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\ControlExtension.1.0.7898.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\DebugExtension.1.0.7898.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\Interfaces\ILog.1.0.7881.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\Interfaces\ILog.1.0.7901.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\SerializeExtention.1.0.7881.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\TabCounter.1.0.7898.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainViewModel.1.0.7878.cs" />
@@ -93,6 +102,9 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\MainView.1.0.7898.xaml.cs">
       <DependentUpon>MainView.1.0.7898.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\MainView.1.0.7901.xaml.cs">
+      <DependentUpon>MainView.1.0.7901.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)_Temp\Z_MainView.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)_Temp\Z_MainViewModel.cs" />
