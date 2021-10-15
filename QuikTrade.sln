@@ -22,6 +22,9 @@ EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "_Archive", "Temp\_Archive.shproj", "{99FDFD21-A019-46F4-ACAA-3CA886846E33}"
 EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Temp\Temp.projitems*{99fdfd21-a019-46f4-acaa-3ca886846e33}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
