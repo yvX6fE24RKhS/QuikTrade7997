@@ -12,6 +12,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Misc", "_Misc", "{1A53FB7F-3C9D-456F-93AC-C4BFED187111}"
 	ProjectSection(SolutionItems) = preProject
 		QuikTrade\bin\Debug\MainViewModel.json = QuikTrade\bin\Debug\MainViewModel.json
+		Temp\Snippets\pp_region.snippet = Temp\Snippets\pp_region.snippet
+		Temp\Snippets\SetNotifyProperty.snippet = Temp\Snippets\SetNotifyProperty.snippet
+		Temp\Snippets\SetNotifyPropertyWithDefault.snippet = Temp\Snippets\SetNotifyPropertyWithDefault.snippet
 		QuikTrade\bin\Debug\Log\test.log.json = QuikTrade\bin\Debug\Log\test.log.json
 		QuikTrade\bin\Debug\Log\test.log.xml = QuikTrade\bin\Debug\Log\test.log.xml
 	EndProjectSection
@@ -19,9 +22,6 @@ EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "_Archive", "Temp\_Archive.shproj", "{99FDFD21-A019-46F4-ACAA-3CA886846E33}"
 EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		Temp\Temp.projitems*{99fdfd21-a019-46f4-acaa-3ca886846e33}*SharedItemsImports = 13
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
