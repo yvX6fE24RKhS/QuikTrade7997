@@ -1,7 +1,9 @@
 ﻿using System;
+using QuikTrade.DataTypes.Enums;
+using QuikTrade.DataTypes.Interfaces;
 using QuikTrade.Utilities;
 
-namespace QuikTrade.Models
+namespace QuikTrade.DataTypes
 {
    /// <summary>
    /// Запись в журнале.

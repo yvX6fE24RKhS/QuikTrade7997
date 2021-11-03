@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Windows.Data;
 
-namespace QuikTrade.Utilities
+namespace QuikTrade.Utilities.Converters
 {
    /// <summary>
    /// Конвертор реализующий логическое умножение.

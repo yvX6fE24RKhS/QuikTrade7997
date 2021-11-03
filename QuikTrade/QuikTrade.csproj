@@ -54,10 +54,13 @@
     <ApplicationIcon>Resources\Images\App.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>711760224A7A46486710629F469BAE214F18FBE7</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -110,27 +113,30 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Commands\ViewModelCommands.cs" />
-    <Compile Include="Commands\ViewModelCommands.LogShow.cs" />
-    <Compile Include="Commands\ViewModelCommands.RunTest.cs" />
-    <Compile Include="Commands\ViewModelCommands.TabCommands.cs" />
-    <Compile Include="Utilities\ControlExtension.cs" />
+    <Compile Include="ViewModels\Commands\ViewModelCommands.cs" />
+    <Compile Include="ViewModels\Commands\ViewModelCommands.LogShow.cs" />
+    <Compile Include="ViewModels\Commands\ViewModelCommands.RunTest.cs" />
+    <Compile Include="ViewModels\Commands\ViewModelCommands.TabCommands.cs" />
+    <Compile Include="Utilities\Extensions\ControlExtension.cs" />
     <Compile Include="Utilities\Converters\BooleanAndConverter.cs" />
     <Compile Include="Utilities\Converters\BooleanAndToVisibilityConverter.cs" />
     <Compile Include="Utilities\Converters\BooleanOrConverter.cs" />
     <Compile Include="Utilities\Converters\BooleanOrToVisibilityConverter.cs" />
-    <Compile Include="Utilities\Interfaces\IEventInfo.cs" />
-    <Compile Include="Utilities\Interfaces\ILogEvent.cs" />
-    <Compile Include="Utilities\Interfaces\ILog.cs" />
-    <Compile Include="Models\Log.cs" />
-    <Compile Include="Models\LogEvent.cs" />
-    <Compile Include="Utilities\DebugExtension.cs" />
-    <Compile Include="Utilities\Enums\Severity.cs" />
-    <Compile Include="Utilities\Enums\Initiator.cs" />
+    <Compile Include="Utilities\Converters\TabItemConverter.cs" />
+    <Compile Include="Utilities\DefaultTemplateSelector.cs" />
+    <Compile Include="DataTypes\Interfaces\IEventInfo.cs" />
+    <Compile Include="DataTypes\Interfaces\ILogEvent.cs" />
+    <Compile Include="DataTypes\Interfaces\ILog.cs" />
+    <Compile Include="DataTypes\Log.cs" />
+    <Compile Include="DataTypes\LogEvent.cs" />
+    <Compile Include="Utilities\Extensions\DebugExtension.cs" />
+    <Compile Include="DataTypes\Enums\Severity.cs" />
+    <Compile Include="DataTypes\Enums\Initiator.cs" />
     <Compile Include="Utilities\EventInfo.cs" />
     <Compile Include="Utilities\LogPath.cs" />
-    <Compile Include="Utilities\SerializeExtention.cs" />
+    <Compile Include="Utilities\Extensions\SerializeExtention.cs" />
     <Compile Include="Utilities\TabCounter.cs" />
+    <Compile Include="ViewModels\Interfaces\IWorkspaceViewModel.cs" />
     <Compile Include="ViewModels\LogViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\TabItemSampleViewModel.cs" />
@@ -151,6 +157,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\TabTemplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -185,6 +195,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Diagrams\ViewModel.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -222,6 +233,8 @@
   <ItemGroup>
     <Resource Include="Resources\Images\App.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

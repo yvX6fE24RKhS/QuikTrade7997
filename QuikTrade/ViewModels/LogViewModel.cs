@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Foundation;
-using QuikTrade.Models;
 using System.Runtime.Serialization;
+using QuikTrade.DataTypes;
 
 namespace QuikTrade.ViewModels
 {

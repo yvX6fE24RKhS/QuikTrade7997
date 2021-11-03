@@ -2,7 +2,7 @@
 <ResourceDictionary  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                      xmlns:local="clr-namespace:QuikTrade"
-                     xmlns:commands="clr-namespace:QuikTrade.Commands;assembly=QuikTrade"
+                     xmlns:commands="clr-namespace:QuikTrade.ViewModels.Commands;assembly=QuikTrade"
                      >
    <Set x:Key="MainMenuSet" x:Shared="True">
       <MenuItem x:Name="MainItemFile" Header="Файл">

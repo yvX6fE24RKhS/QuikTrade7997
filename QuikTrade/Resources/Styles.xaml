@@ -2,10 +2,11 @@
 <ResourceDictionary  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                      xmlns:osc="clr-namespace:OpenSourceControls;assembly=DockPanelSplitter"
-                     xmlns:commands="clr-namespace:QuikTrade.Commands;assembly=QuikTrade"
+                     xmlns:commands="clr-namespace:QuikTrade.ViewModels.Commands;assembly=QuikTrade"
+                     xmlns:converters="clr-namespace:QuikTrade.Utilities.Converters"
 >
-
    <BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter" />
+   <converters:TabItemConverter x:Key="TabItemConverter" />
 
    <!-- Styling the Border -->
    <Style x:Key="MainBorderStyle" TargetType="{x:Type Border}">
@@ -17,7 +18,7 @@
    </Style>
 
    <!-- Styling the DockPanelSplitter -->
-   <Style x:Key="HorizontalBevelGrip" TargetType="{x:Type osc:DockPanelSplitter}">
+   <Style x:Key="HorizontalBevelGripStyle" TargetType="{x:Type osc:DockPanelSplitter}">
       <!--<Setter Property="ProportionalResize" Value="False" />-->
       <Setter Property="Thickness" Value="6"/>
       <Setter Property="Template">
@@ -39,7 +40,7 @@
          </Setter.Value>
       </Setter>
    </Style>
-   <Style x:Key="VerticalBevelGrip" TargetType="{x:Type osc:DockPanelSplitter}">
+   <Style x:Key="VerticalBevelGripStyle" TargetType="{x:Type osc:DockPanelSplitter}">
       <Setter Property="Thickness" Value="6"/>
       <Setter Property="Template">
          <Setter.Value>
@@ -83,10 +84,10 @@
    </Style>
 
    <!--Styling the TabControl-->
-   <Style TargetType="{x:Type TabControl}">
+   <Style x:Key="TabControlStyle" TargetType="{x:Type TabControl}" BasedOn="{StaticResource {x:Type TabControl}}">
       <Setter Property="SelectedItem" Value="{Binding SelectedTab}" />
    </Style>
-
+   
    <!-- Styling the TabItem -->
    <Style TargetType="{x:Type TabItem}">
       <Setter Property="IsSelected" Value="{Binding IsSelected}" />

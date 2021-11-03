@@ -3,9 +3,11 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Text.Json;
 using System.Xml.Serialization;
+using QuikTrade.DataTypes.Interfaces;
 using QuikTrade.Utilities;
+using QuikTrade.Utilities.Extensions;
 
-namespace QuikTrade.Models
+namespace QuikTrade.DataTypes
 {
    /// <summary>
    /// Журнал приложения.

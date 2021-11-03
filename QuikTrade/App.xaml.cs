@@ -1,8 +1,10 @@
 ﻿using System.Diagnostics;
 using System.Windows;
 using Foundation;
-using QuikTrade.Models;
+using QuikTrade.DataTypes;
+using QuikTrade.DataTypes.Enums;
 using QuikTrade.Utilities;
+using QuikTrade.Utilities.Extensions;
 using QuikTrade.ViewModels;
 
 namespace QuikTrade
@@ -36,17 +38,17 @@ namespace QuikTrade
       {
          Log = new Log();
 
-         this.Startup += (sender, args) => Log.Append(
-            this, 
+         Startup += (sender, args) => Log.Append(
+            this,
             new EventInfo(
                init: Initiator.user,
                evnt: "Startup",
                msg: $"Пользователь {DebugExtension.GetUserName()} запустил приложение {DebugExtension.GetAppName()} ({DebugExtension.GetAssemblyVersion()})."
             )
          );
-         this.Exit += (sender, args) => App_OnExit(sender, args);
-         this.Exit += (sender, args) => Log.Append(
-            this, 
+         Exit += (sender, args) => App_OnExit(sender, args);
+         Exit += (sender, args) => Log.Append(
+            this,
             new EventInfo(
                evnt: "Exit",
                msg: $"Работа приложения {DebugExtension.GetAppName()} завершилась с кодом {args.ApplicationExitCode}."
@@ -54,7 +56,7 @@ namespace QuikTrade
          );
 
          //this.Exit += (sender, args) => Log.WriteXml();
-         this.Exit += (sender, args) => Log.WriteJson();
+         Exit += (sender, args) => Log.WriteJson();
       }
       #endregion Constructors
 
@@ -90,7 +92,7 @@ namespace QuikTrade
 
          // Журналирование
          Log.Append(
-            this, 
+            this,
             new EventInfo(
                init: Initiator.app,
                evnt: "Exit",

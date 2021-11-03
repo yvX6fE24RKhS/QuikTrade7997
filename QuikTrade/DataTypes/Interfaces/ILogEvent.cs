@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace QuikTrade.Utilities
+namespace QuikTrade.DataTypes.Interfaces
 {
    /// <summary>
    /// Интерфейс класса записи информации о событии в журнале приложения.

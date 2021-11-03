@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using QuikTrade.Models;
 
-namespace QuikTrade.Utilities
+namespace QuikTrade.DataTypes.Interfaces
 {
    /// <summary>
    /// Интерфейс класса журнала приложения.

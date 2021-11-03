@@ -1,62 +1,72 @@
 ﻿using System;
 using System.Globalization;
-using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Data;
 
 namespace QuikTrade.Utilities.Converters
 {
    /// <summary>
-   /// Конвертор реализующий логическое сложение и преобразование резултата в значение перчисления <see cref="Visibility"/>.
+   /// Конвертор формирующий контент вкладки.
    /// </summary>
-   /// <see href="https://askdev.ru/q/c-wpf-isenabled-s-ispolzovaniem-neskolkih-privyazok-76540/"/>
-   /// <version>1.0..* : none</version>
-   internal class BooleanOrToVisibilityConverter : IMultiValueConverter
+   /// <remarks>>author: Роман Мейтес</remarks>
+   /// <version>1.0..* : 1.0..*</version>
+   public class TabItemConverter : DependencyObject, IMultiValueConverter
    {
+      #region Fields
+      /// <summary>
+      /// Содержание вкладки как свойство зависимости.
+      /// </summary>
+      public static readonly DependencyProperty VisualContentProperty =
+          DependencyProperty.Register("VisualContent", typeof(object), typeof(TabItemConverter), new PropertyMetadata(null));
+
+      #endregion Fields
+
       #region Properties
 
       /// <summary>
-      /// Состояние отображения элемента.
+      /// Содержание вкладки.
       /// </summary>
-      public Visibility HiddenVisibility { get; set; }
-
-      /// <summary>
-      /// Определяет, нужно ли инвертировать результат преобразования.
-      /// </summary>
-      public bool IsInverted { get; set; }
-
-      #endregion Properties
-
-      #region Constructors
-
-      /// <summary>
-      /// Инициализирует новый экземпляр класса <see cref="BooleanOrToVisibilityConverter"/>
-      /// </summary>
-      public BooleanOrToVisibilityConverter()
+      public object VisualContent
       {
-         this.HiddenVisibility = Visibility.Collapsed;
-         this.IsInverted = false;
+         get => GetValue(VisualContentProperty);
+         set => SetValue(VisualContentProperty, value);
       }
 
-      #endregion Constructors
+      #endregion Properties
 
       #region Methods
       #region IMultiValueConverter Memebers
 
       /// <summary>
-      /// Выполняет логическое сложение над элементами массива.
+      /// Формирует визуальное представление вкладки при переключении.
       /// </summary>
       /// <param name="values">Массив значений, создаваемый исходными привязками в System.Windows.Data.MultiBinding.</param>
       /// <param name="targetType">Тип целевого свойства привязки.</param>
       /// <param name="parameter">Используемый параметр преобразователя.</param>
       /// <param name="culture">Язык и региональные параметры, используемые в преобразователе.</param>
-      /// <returns>Значение перчисления <see cref="Visibility"/> как результат логического сложения над элементами массива .</returns>
+      /// <returns>Результат логического умножения над элементами массива.</returns>
       public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
       {
-         bool flag = values.OfType<IConvertible>().Any(System.Convert.ToBoolean);
-         if (this.IsInverted)
-            flag = !flag;
-         return flag ? Visibility.Visible : this.HiddenVisibility;
+         if (values.Length == 2 && values[0] is int selectedIndex && values[1] is TabControl tabControl)
+         {
+            if (tabControl.ItemContainerGenerator.ContainerFromIndex(selectedIndex) is TabItem tabItem)
+            {
+               object content = tabItem.GetValue(VisualContentProperty);
+               if (content == null)
+               {
+                  content = new ContentControl
+                  {
+                     Content = tabItem.Content,
+                     ContentTemplate = tabControl.ContentTemplate,
+                     ContentTemplateSelector = tabControl.ContentTemplateSelector
+                  };
+                  tabItem.SetValue(VisualContentProperty, content);
+               }
+               return content;
+            }
+         }
+         return null;
       }
 
       /// <summary>

@@ -1,4 +1,7 @@
-﻿namespace QuikTrade.Utilities
+﻿using QuikTrade.DataTypes.Enums;
+using QuikTrade.DataTypes.Interfaces;
+
+namespace QuikTrade.Utilities
 {
    /// <summary>
    /// Описание события.

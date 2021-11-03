@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Windows.Input;
 
-namespace QuikTrade.Commands
+namespace QuikTrade.ViewModels.Commands
 {
    /// <summary>
    /// Команды модели представления.

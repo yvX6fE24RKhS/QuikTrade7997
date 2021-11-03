@@ -6,7 +6,7 @@ using System.Text.Json;
 using System.Text.Unicode;
 using Foundation;
 
-namespace QuikTrade.Utilities
+namespace QuikTrade.Utilities.Extensions
 {
    /// <summary>
    /// Методы свзанные с сериализацией.

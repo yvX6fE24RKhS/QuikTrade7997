@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Media;
 
-namespace QuikTrade.Utilities
+namespace QuikTrade.Utilities.Extensions
 {
    /// <summary>
    /// Методы работы с деревом элементов управления.
@@ -9,6 +9,8 @@ namespace QuikTrade.Utilities
    /// <version>1.0.7898.* : none</version>
    internal class ControlExtension
    {
+      #region Methods
+
       /// <summary>
       /// Найти родительский элемент управления определенного типа.
       /// </summary>
@@ -32,5 +34,7 @@ namespace QuikTrade.Utilities
          else
             return FindParent<T>(parentObject);
       }
+
+      #endregion Methods
    }
 }

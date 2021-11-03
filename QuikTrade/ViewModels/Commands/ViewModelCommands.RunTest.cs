@@ -1,12 +1,13 @@
 ﻿using System.Diagnostics;
 using QuikTrade.Utilities;
-using QuikTrade.Models;
 using System.Text.Json;
 using System.IO;
 using System.Collections.ObjectModel;
 using System.Xml.Serialization;
+using QuikTrade.DataTypes;
+using QuikTrade.Utilities.Extensions;
 
-namespace QuikTrade.Commands
+namespace QuikTrade.ViewModels.Commands
 {
    /// <summary>
    /// Команды модели представления.

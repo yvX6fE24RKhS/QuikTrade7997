@@ -10,9 +10,10 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
 using Foundation;
-using QuikTrade.Commands;
+using QuikTrade.ViewModels.Commands;
+using QuikTrade.DataTypes.Enums;
 using QuikTrade.Utilities;
-
+using QuikTrade.Utilities.Extensions;
 
 namespace QuikTrade.ViewModels
 {
@@ -32,16 +33,17 @@ namespace QuikTrade.ViewModels
       [DataMember]
       public string AssemblyVersion
       {
-         get { return Get(() => this.AssemblyVersion, DebugExtension.GetAssemblyVersion()); }
-         set { Set(() => this.AssemblyVersion, DebugExtension.GetAssemblyVersion()); }
+         get => Get(() => this.AssemblyVersion, DebugExtension.GetAssemblyVersion());
+         set => Set(() => this.AssemblyVersion, DebugExtension.GetAssemblyVersion());
       }
 
       /// <summary>
-      /// 
+      /// Последняя запись в журнале.
       /// </summary>
-      public string LastEventMessage {
-         get { return Get(() => this.LastEventMessage, App.Log.LastEvent.Message); }
-         set { Set(() => this.LastEventMessage, value); }
+      public string LastEventMessage
+      {
+         get => Get(() => this.LastEventMessage, App.Log.LastEvent.Message);
+         set => Set(() => this.LastEventMessage, value);
       }
 
       #region DockPanelChangeableProperties
@@ -52,10 +54,10 @@ namespace QuikTrade.ViewModels
       [DataMember]
       public double MainControlPanelWidth
       {
-         get { return Get(() => this.MainControlPanelWidth, 80); }
-         set { Set(() => this.MainControlPanelWidth, value); }
+         get => Get(() => this.MainControlPanelWidth, 80);
+         set => Set(() => this.MainControlPanelWidth, value);
       }
-      
+
       #endregion DockPanelChangeableProperties
 
       #region Workspaces

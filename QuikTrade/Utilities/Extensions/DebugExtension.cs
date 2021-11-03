@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace QuikTrade.Utilities
+namespace QuikTrade.Utilities.Extensions
 {
    /// <summary>
    /// Методы применяемые при отладке.

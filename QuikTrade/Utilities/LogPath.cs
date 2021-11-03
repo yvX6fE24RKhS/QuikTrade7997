@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using QuikTrade.Utilities.Extensions;
+using System.IO;
 
 namespace QuikTrade.Utilities
 {

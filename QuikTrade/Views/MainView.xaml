@@ -26,7 +26,7 @@
          <ResourceDictionary.MergedDictionaries>
             <ResourceDictionary Source="/QuikTrade;component/Resources/Templates.xaml"/>
             <ResourceDictionary Source="/QuikTrade;component/Resources/MenuSet.xaml"/>
-            <ResourceDictionary Source="/QuikTrade;component/Resources/Styles.xaml"/>
+            
          </ResourceDictionary.MergedDictionaries>
       </ResourceDictionary>
    </Window.Resources>
@@ -50,7 +50,7 @@
                >
                <Rectangle Fill="Black"/>
             </Grid>
-            <osc:DockPanelSplitter DockPanel.Dock="Left" Style="{StaticResource VerticalBevelGrip}"/>
+            <osc:DockPanelSplitter DockPanel.Dock="Left" Style="{StaticResource VerticalBevelGripStyle}"/>
             <Grid Name="MainWorkspace">
                <ContentControl 
                     Content="{Binding}"

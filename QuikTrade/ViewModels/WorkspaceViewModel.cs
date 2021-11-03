@@ -12,7 +12,7 @@ namespace QuikTrade.ViewModels
    /// </summary>
    /// <version>1.0.7900.* : 1.0.7898.*</version>
    [DataContract]
-   public abstract class WorkspaceViewModel : ViewModel
+   public abstract class WorkspaceViewModel : ViewModel, IWorkspaceViewModel
    {
       #region Properties
 
@@ -34,11 +34,11 @@ namespace QuikTrade.ViewModels
       [DataMember]
       public bool IsSelected { get; set; }
 
-      /// <summary>
-      /// Контент рабочего пространства.
-      /// </summary>
-      [DataMember]
-      public abstract object Content { get; set; } 
+      ///// <summary>
+      ///// Контент рабочего пространства.
+      ///// </summary>
+      //[DataMember]
+      //public abstract object Content { get; set; } 
 
       #endregion Properties
 

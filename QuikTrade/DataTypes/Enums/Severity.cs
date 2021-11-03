@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Xml.Serialization;
 
-namespace QuikTrade.Utilities
+namespace QuikTrade.DataTypes.Enums
 {
    /// <summary>
    /// Перечисление уровней серьёзности событий.

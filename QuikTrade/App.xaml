@@ -6,5 +6,10 @@
                Startup="App_OnStartup"
                >
    <Application.Resources>
+      <ResourceDictionary>
+         <ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary Source="/QuikTrade;component/Resources/Styles.xaml"/>
+         </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
    </Application.Resources>
 </Application>

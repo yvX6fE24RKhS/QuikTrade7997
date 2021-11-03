@@ -4,10 +4,12 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using QuikTrade.DataTypes.Enums;
 using QuikTrade.Utilities;
+using QuikTrade.Utilities.Extensions;
 using QuikTrade.ViewModels;
 
-namespace QuikTrade.Commands
+namespace QuikTrade.ViewModels.Commands
 {
    /// <summary>
    /// Команды модели представления.
@@ -77,7 +79,7 @@ namespace QuikTrade.Commands
                   //DEBUG MessageBox.Show($"SelectedTab: {SelectedTab.GetType().ToString()}\n");
                   if (viewModel?.SelectedTab?.GetType() != itemType)
                   {
-                     var select = viewModel.Workspaces.Where(i => i.GetType() == itemType).ToList();
+                     List<WorkspaceViewModel> select = viewModel.Workspaces.Where(i => i.GetType() == itemType).ToList();
                      viewModel.SelectedTab = select[0];
                      select[0].IsSelected = true;
                   }
@@ -143,19 +145,20 @@ namespace QuikTrade.Commands
       /// <param name="e">Аргументы события.</param>
       internal static void CloseTab(object sender, RoutedEventArgs e)
       {
+         // ищем родительскую вкладку
+         TabItem tabItem = GetTabItem(e);
+
 #if DEBUG
          //string msg = $"sender: {sender.ToString()}\nRoutedEventArgs: {e.ToString()}\ne.Source: {e.Source.ToString()}\n(e.OriginalSource as FrameworkElement).Name: {(e.OriginalSource as FrameworkElement).Name}\ne.RoutedEvent.Name: {e.RoutedEvent.Name}\ne.OriginalSource: {e.OriginalSource}\ne.Handled: {e.Handled}\ne.GetHashCode: {e.GetHashCode()}\ne.Source.GetType(): {e.Source.GetType()}";
          string msg = $"\ne.Source: {e.Source}\n"
                       + $"e.Source.GetType().ToString(): {e.Source.GetType()}\n"
                       + $"((Control)e.Source).DataContext.ToString(): {((Control)e.Source).DataContext}\n"
                       + $"((Control)e.Source).DataContext.GetType().ToString(): {((Control)e.Source).DataContext.GetType()}\n"
+                      + $"tabItem.DataContext.GetType().Name: {tabItem.DataContext.GetType().Name}\n"
          ;
          System.Diagnostics.Debug.WriteLine(msg);
          //DEBUG MessageBox.Show($"Uid: {tabItem.Uid.ToString()}\n");
 #endif
-
-         // ищем родительскую вкладку
-         TabItem tabItem = GetTabItem(e);
 
          if (tabItem != null)
          {
