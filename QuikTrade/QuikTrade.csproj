@@ -114,7 +114,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModels\Commands\ViewModelCommands.cs" />
-    <Compile Include="ViewModels\Commands\ViewModelCommands.LogShow.cs" />
     <Compile Include="ViewModels\Commands\ViewModelCommands.RunTest.cs" />
     <Compile Include="ViewModels\Commands\ViewModelCommands.TabCommands.cs" />
     <Compile Include="Utilities\Extensions\ControlExtension.cs" />
@@ -136,15 +135,12 @@
     <Compile Include="Utilities\LogPath.cs" />
     <Compile Include="Utilities\Extensions\SerializeExtention.cs" />
     <Compile Include="Utilities\TabCounter.cs" />
+    <Compile Include="ViewModels\Interfaces\IViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\IWorkspaceViewModel.cs" />
-    <Compile Include="ViewModels\LogViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\TabItemSampleViewModel.cs" />
     <Compile Include="ViewModels\TabItemLogViewModel.cs" />
     <Compile Include="ViewModels\WorkspaceViewModel.cs" />
-    <Compile Include="Views\LogView.xaml.cs">
-      <DependentUpon>LogView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
@@ -160,15 +156,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resources\TabTemplate.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Resources\Templates.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\LogView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

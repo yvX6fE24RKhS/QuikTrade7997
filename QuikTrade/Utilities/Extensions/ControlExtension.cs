@@ -6,7 +6,7 @@ namespace QuikTrade.Utilities.Extensions
    /// <summary>
    /// Методы работы с деревом элементов управления.
    /// </summary>
-   /// <version>1.0.7898.* : none</version>
+   /// <version>1.0.7983.* : 1.0.7898.*</version>
    internal class ControlExtension
    {
       #region Methods

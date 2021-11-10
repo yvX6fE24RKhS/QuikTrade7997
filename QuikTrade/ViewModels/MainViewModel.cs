@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Linq;
 using System.Runtime.Serialization;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
 using Foundation;
 using QuikTrade.ViewModels.Commands;
+using QuikTrade.ViewModels.Interfaces;
 using QuikTrade.DataTypes.Enums;
 using QuikTrade.Utilities;
 using QuikTrade.Utilities.Extensions;
@@ -20,9 +18,11 @@ namespace QuikTrade.ViewModels
    /// <summary>
    /// Модель представления основного окна.
    /// </summary>
-   /// <version>1.0.7901.* : 1.0.7898.*</version>
+   /// <version>1.0.7983.* : 1.0.7898.*</version>
    [DataContract]
    [KnownType(typeof(TabItemSampleViewModel))]
+   [KnownType(typeof(TabItemLogViewModel))]
+
    public class MainViewModel : ViewModel
    {
       #region Properties
@@ -33,8 +33,8 @@ namespace QuikTrade.ViewModels
       [DataMember]
       public string AssemblyVersion
       {
-         get => Get(() => this.AssemblyVersion, DebugExtension.GetAssemblyVersion());
-         set => Set(() => this.AssemblyVersion, DebugExtension.GetAssemblyVersion());
+         get => Get(() => AssemblyVersion, DebugExtension.GetAssemblyVersion());
+         set => Set(() => AssemblyVersion, DebugExtension.GetAssemblyVersion());
       }
 
       /// <summary>
@@ -42,8 +42,8 @@ namespace QuikTrade.ViewModels
       /// </summary>
       public string LastEventMessage
       {
-         get => Get(() => this.LastEventMessage, App.Log.LastEvent.Message);
-         set => Set(() => this.LastEventMessage, value);
+         get => Get(() => LastEventMessage, App.Log.LastEvent.Message);
+         set => Set(() => LastEventMessage, value);
       }
 
       #region DockPanelChangeableProperties
@@ -54,8 +54,8 @@ namespace QuikTrade.ViewModels
       [DataMember]
       public double MainControlPanelWidth
       {
-         get => Get(() => this.MainControlPanelWidth, 80);
-         set => Set(() => this.MainControlPanelWidth, value);
+         get => Get(() => MainControlPanelWidth, 80);
+         set => Set(() => MainControlPanelWidth, value);
       }
 
       #endregion DockPanelChangeableProperties
@@ -68,28 +68,28 @@ namespace QuikTrade.ViewModels
       [DataMember]
       public Dictionary<string, TabCounter> WorkspaceTypes
       {
-         get { return Get(() => this.WorkspaceTypes); }
-         set { Set(() => this.WorkspaceTypes, value); }
+         get => Get(() => WorkspaceTypes);
+         set => Set(() => WorkspaceTypes, value);
       }
 
       /// <summary>
       /// Коллекция открытых вкладок.
       /// </summary>
       [DataMember]
-      public ObservableCollection<WorkspaceViewModel> Workspaces
+      public ObservableCollection<IWorkspaceViewModel> Workspaces
       {
-         get { return Get(() => this.Workspaces); }
-         set { Set(() => this.Workspaces, value); }
+         get => Get(() => Workspaces);
+         set => Set(() => Workspaces, value);
       }
 
       /// <summary>
       /// Активная вкладка.
       /// </summary>
       [DataMember]
-      public WorkspaceViewModel SelectedTab
+      public IWorkspaceViewModel SelectedTab
       {
-         get { return Get(() => this.SelectedTab); }
-         set { Set(() => this.SelectedTab, value); }
+         get => Get(() => SelectedTab);
+         set => Set(() => SelectedTab, value);
       }
 
       #endregion Workspaces
@@ -101,7 +101,7 @@ namespace QuikTrade.ViewModels
       /// </summary>
       public MainViewModel() : base()
       {
-         this.LastEventMessage = "test";
+         GetLastLogedMessage();
       }
       #endregion Constructors
 
@@ -116,7 +116,7 @@ namespace QuikTrade.ViewModels
       {
 #if DEBUG
          string msg = "Отладка: MainViewModel.Initialize(StreamingContext streamingContext = default(StreamingContext)) executing";
-         System.Diagnostics.Debug.WriteLine(msg);
+         Debug.WriteLine(msg);
 #endif
 
          InitializeWorkspace();
@@ -129,22 +129,33 @@ namespace QuikTrade.ViewModels
       /// </summary>
       private void InitializeWorkspace()
       {
-         if (this.WorkspaceTypes == null)
+         if (WorkspaceTypes == null)
          {
-            this.WorkspaceTypes = new Dictionary<string, TabCounter>();
+            WorkspaceTypes = new Dictionary<string, TabCounter>();
          }
 
-         if (!this.WorkspaceTypes.ContainsKey(typeof(TabItemSampleViewModel).Name))
-         {
-            this.WorkspaceTypes.Add(typeof(TabItemSampleViewModel).Name, new TabCounter());
-         }
+         AddWorkspaceType(nameof(TabItemSampleViewModel), TabCounter.MaxCountDefault);
+         AddWorkspaceType(nameof(TabItemLogViewModel), 1);
 
-         if (this.Workspaces == null) 
+         if (Workspaces == null)
          {
-            this.Workspaces = new ObservableCollection<WorkspaceViewModel>();
+            Workspaces = new ObservableCollection<IWorkspaceViewModel>();
          }
 
          App.MainViewModel = this;
+      }
+
+      /// <summary>
+      /// Добавляет тип рабочего пространства в коллекцию типов вкладок.
+      /// </summary>
+      /// <param name="name">Строка с именем типа.</param>
+      /// <param name="maxCount">Число, содержащее максимально допустимое количество вкладок данного типа.</param>
+      private void AddWorkspaceType(string name, int maxCount)
+      {
+         if (!WorkspaceTypes.ContainsKey(name))
+         {
+            WorkspaceTypes.Add(name, new TabCounter(maxCount));
+         }
       }
 
       /// <summary>
@@ -165,9 +176,9 @@ namespace QuikTrade.ViewModels
 
          this[ViewModelCommands.TestCommand].Executed += (sender, args) => ViewModelCommands.RunTest();
 
-         this[ViewModelCommands.LogShowCommand].Executed += (sender, args) => ViewModelCommands.LogShow();
-
          this[ViewModelCommands.CreateTabSampleCommand].Executed += (sender, args) => ViewModelCommands.CreateTab(typeof(TabItemSampleViewModel));
+
+         this[ViewModelCommands.LogShowCommand].Executed += (sender, args) => ViewModelCommands.CreateTab(typeof(TabItemLogViewModel));
 
          this[ViewModelCommands.CloseAllTabsCommand].Executed += (sender, args) => ViewModelCommands.CloseAllTabs(sender, args);
 
@@ -190,7 +201,7 @@ namespace QuikTrade.ViewModels
 #if DEBUG
          Debug.WriteLine(message: $"Отладка: {DebugExtension.GetCallerMemberName(this)} executed. ");
 #endif
-         this.LastEventMessage = App.Log.LastEvent.Message; 
+         LastEventMessage = App.Log.LastEvent.Message;
       }
 
       /// <summary>
@@ -199,10 +210,10 @@ namespace QuikTrade.ViewModels
       /// <param name="workspace">Вкладка рабочего пространства, которая будет выбрана в качестве текущей.</param>
       internal void SetActiveWorkspace(WorkspaceViewModel workspace)
       {
-         Debug.Assert(this.Workspaces.Contains(workspace));
+         Debug.Assert(Workspaces.Contains(workspace));
          bool result = false;
 
-         ICollectionView collectionView = CollectionViewSource.GetDefaultView(this.Workspaces);
+         ICollectionView collectionView = CollectionViewSource.GetDefaultView(Workspaces);
          if (collectionView != null)
             result = collectionView.MoveCurrentTo(workspace);
 

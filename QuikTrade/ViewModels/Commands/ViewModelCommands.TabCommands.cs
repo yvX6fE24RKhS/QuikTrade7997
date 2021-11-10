@@ -7,14 +7,14 @@ using System.Windows.Controls;
 using QuikTrade.DataTypes.Enums;
 using QuikTrade.Utilities;
 using QuikTrade.Utilities.Extensions;
-using QuikTrade.ViewModels;
+using QuikTrade.ViewModels.Interfaces;
 
 namespace QuikTrade.ViewModels.Commands
 {
    /// <summary>
    /// Команды модели представления.
    /// </summary>
-   /// <version>1.0.7898.* : none</version>
+   /// <version>1.0.7983.* : 1.0.7898.*</version>
    public partial class ViewModelCommands
    {
       #region Methods
@@ -65,7 +65,10 @@ namespace QuikTrade.ViewModels.Commands
 
                   //добавляем вкладку в коллекцию
                   if (viewModel.Workspaces == null)
-                     viewModel.Workspaces = new ObservableCollection<WorkspaceViewModel>();
+                  {
+                     viewModel.Workspaces = new ObservableCollection<IWorkspaceViewModel>();
+                  }
+
                   viewModel.Workspaces.Add((WorkspaceViewModel)obj);
 
                   //устанавливаем представление текущим.
@@ -79,7 +82,7 @@ namespace QuikTrade.ViewModels.Commands
                   //DEBUG MessageBox.Show($"SelectedTab: {SelectedTab.GetType().ToString()}\n");
                   if (viewModel?.SelectedTab?.GetType() != itemType)
                   {
-                     List<WorkspaceViewModel> select = viewModel.Workspaces.Where(i => i.GetType() == itemType).ToList();
+                     List<IWorkspaceViewModel> select = viewModel.Workspaces.Where(i => i.GetType() == itemType).ToList();
                      viewModel.SelectedTab = select[0];
                      select[0].IsSelected = true;
                   }
@@ -166,7 +169,7 @@ namespace QuikTrade.ViewModels.Commands
 
             MainViewModel viewModel = (MainViewModel)(((Control)(e.Source)).DataContext);
 
-            List<WorkspaceViewModel> workspaces = viewModel.Workspaces
+            List<IWorkspaceViewModel> workspaces = viewModel.Workspaces
                .Where(i => i.Uid.ToString() == tabItem.Uid.ToString())
                .ToList()
             ;
@@ -199,7 +202,7 @@ namespace QuikTrade.ViewModels.Commands
 
             MainViewModel viewModel = (MainViewModel)(((Control)(e.Source)).DataContext);
 
-            List<WorkspaceViewModel> workspaces = viewModel.Workspaces
+            List<IWorkspaceViewModel> workspaces = viewModel.Workspaces
                .Where(i => i.Uid.ToString() != tabItem.Uid.ToString() && i.GetType().IsAssignableFrom(tabItem.DataContext.GetType()))
                .ToList()
             ;
@@ -233,7 +236,7 @@ namespace QuikTrade.ViewModels.Commands
 
             MainViewModel viewModel = (MainViewModel)(((Control)(e.Source)).DataContext);
 
-            List<WorkspaceViewModel> workspaces = viewModel.Workspaces
+            List<IWorkspaceViewModel> workspaces = viewModel.Workspaces
                .Where(i => i.GetType().IsAssignableFrom(tabItem.DataContext.GetType()))
                .ToList()
             ;
@@ -266,7 +269,7 @@ namespace QuikTrade.ViewModels.Commands
 
             MainViewModel viewModel = (MainViewModel)(((Control)(e.Source)).DataContext);
 
-            List<WorkspaceViewModel> workspaces = viewModel.Workspaces
+            List<IWorkspaceViewModel> workspaces = viewModel.Workspaces
                .Where(i => i.Uid.ToString() != tabItem.Uid.ToString())
                .ToList()
             ;
@@ -302,7 +305,7 @@ namespace QuikTrade.ViewModels.Commands
       /// </summary>
       /// <param name="viewModel">Модель представления содержащая вкладки.</param>
       /// <param name="workspaces">Список вкладок.</param>
-      private static void CloseTabs(MainViewModel viewModel, List<WorkspaceViewModel> workspaces)
+      private static void CloseTabs(MainViewModel viewModel, List<IWorkspaceViewModel> workspaces)
       {
          foreach (WorkspaceViewModel workspace in workspaces)
          {

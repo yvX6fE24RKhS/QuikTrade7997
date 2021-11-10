@@ -1,12 +1,11 @@
-﻿using System;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 
 namespace QuikTrade.DataTypes.Enums
 {
    /// <summary>
    /// Перечисление возможных инициаторов событий.
    /// </summary>
-   /// <version>1.0.7878.* : none</version>
+   /// <version>1.0.7983.* : 1.0.7878.*</version>
    public enum Initiator
    {
       /// <summary> Приложение. </summary>

@@ -1,49 +1,68 @@
-﻿//using System.Runtime.Serialization;
-//using System.Windows;
-//using System.Windows.Controls;
-//using System.Web.UI.WebControls;
+﻿using System.Runtime.Serialization;
+using QuikTrade.DataTypes;
 
-//namespace QuikTrade.ViewModels
-//{
-//   /// <summary>
-//   /// Пример вкладки
-//   /// </summary>
-//   /// <version>1.0.7898.* : none</version>
-//   [DataContract]
-//   public class TabItemLogViewModel : WorkspaceViewModel
-//   {
-//      #region Fields
+namespace QuikTrade.ViewModels
+{
+   /// <summary>
+   /// Вкладка журнала событий.
+   /// </summary>
+   /// <version>1.0.7983.* : 1.0.7983.*</version>
+   [DataContract]
+   public class TabItemLogViewModel : WorkspaceViewModel
+   {
+      #region Fields
 
-//      private string _header = "Журнал";
-//      //private object _content;
+      private string _header = "Журнал";
 
-//      #endregion Fields
+      #endregion Fields
 
-//      #region Properties
-//      #region Base Class Overrides
+      #region Properties
+      #region Base Class Overrides
 
-//      /// <summary>
-//      /// Заголовок
-//      /// </summary>
-//      [DataMember]
-//      public override string Header { get => _header; set => _header = value; }
+      /// <summary>
+      /// Заголовок
+      /// </summary>
+      [DataMember]
+      public override string Header { get => _header; set => _header = value; }
 
-//      ///// <summary>
-//      ///// Наполнение
-//      ///// </summary>
-//      ////[DataMember]
-//      //public override object Content { get => _content; set => _content = value; }
+      #endregion Base Class Overrides
 
-//      ///// <summary>
-//      ///// 
-//      ///// </summary>
-//      //public TabItemLogViewModel()
-//      //{
+      /// <summary>
+      /// Журнал.
+      /// </summary>
+      [IgnoreDataMember]
+      public Log Log { get; set; }
 
-//      //   //(ContentElement) this.Uid.ToString();
-//      //}
+      #endregion Properties
 
-//      #endregion Base Class Overrides
-//      #endregion Properties
-//   }
-//}
+      #region Constructors
+
+      /// <summary>
+      /// Инициализирует новый экземпляр класса <see cref="TabItemLogViewModel"/> содержащий журнал текущей сессии.
+      /// </summary>
+      public TabItemLogViewModel() => this.Log = App.Log;
+
+      /// <summary>
+      /// Инициализирует новый экземпляр класса <see cref="TabItemLogViewModel"/> содержащий журнал из архива. 
+      /// </summary>
+      /// <param name="log">Журнал из архива.</param>
+      public TabItemLogViewModel(Log log)
+      {
+         Log = log;
+      }
+
+      #endregion Constructors
+
+      #region Methods
+      /// <summary>
+      /// Метод вызывается после того как объект будет десериализован. Используется вместо конструктора.
+      /// </summary>
+      [OnDeserialized]
+      void OnDeserialized(StreamingContext context)
+      {
+         this.Log = App.Log;
+      }
+
+      #endregion Methods
+   }
+}

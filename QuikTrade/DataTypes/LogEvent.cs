@@ -1,14 +1,13 @@
 ﻿using System;
 using QuikTrade.DataTypes.Enums;
 using QuikTrade.DataTypes.Interfaces;
-using QuikTrade.Utilities;
 
 namespace QuikTrade.DataTypes
 {
    /// <summary>
    /// Запись в журнале.
    /// </summary>
-   /// <version>1.0.7878.* : none</version>
+   /// <version>1.0.7983.* : 1.0.7878.*</version>
    [Serializable]
    public class LogEvent : ILogEvent
    {
@@ -60,12 +59,12 @@ namespace QuikTrade.DataTypes
       public override string ToString()
       {
          return $"" +
-         $"Moment: {this.Moment.ToLongTimeString()}; " +
-         $"Severity: {this.Severity}; " +
-         $"Initiator: {this.Initiator}; " +
-         $"Sender: {this.Sender}; " +
-         $"Event: {this.Event}; " +
-         $"Message: {this.Message};";
+         $"Moment: {Moment.ToLongTimeString()}; " +
+         $"Severity: {Severity}; " +
+         $"Initiator: {Initiator}; " +
+         $"Sender: {Sender}; " +
+         $"Event: {Event}; " +
+         $"Message: {Message};";
       }
 
       #endregion Overrided Methods

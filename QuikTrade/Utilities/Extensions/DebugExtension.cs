@@ -6,7 +6,7 @@ namespace QuikTrade.Utilities.Extensions
    /// <summary>
    /// Методы применяемые при отладке.
    /// </summary>
-   /// <version>1.0.7898.* : 1.0.7878.*</version>
+   /// <version>1.0.7983.* : 1.0.7898.*</version>
    internal class DebugExtension
    {
       #region Methods

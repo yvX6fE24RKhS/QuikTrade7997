@@ -6,7 +6,7 @@ namespace QuikTrade.Utilities
    /// <summary>
    /// Каталог для журналов на диске.
    /// </summary>
-   /// <version>1.0.7878.* : none</version>
+   /// <version>1.0.7983.* : 1.0.7878.*</version>
    internal class LogPath
     {
       #region Properties

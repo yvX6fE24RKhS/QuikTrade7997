@@ -11,7 +11,7 @@ namespace QuikTrade.Utilities.Extensions
    /// <summary>
    /// Методы свзанные с сериализацией.
    /// </summary>
-   /// <version>1.0.7881.* : 1.0.7867.*</version>
+   /// <version>1.0.7983.* : 1.0.7881.*</version>
    internal class SerializeExtention
    {
       #region Methods

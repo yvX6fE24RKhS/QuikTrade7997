@@ -5,7 +5,7 @@ namespace QuikTrade.Utilities
    /// <summary>
    /// Счетчик однотипных вкладок.
    /// </summary>
-   /// <version>1.0.7898.* : none</version>
+   /// <version>1.0.7983.* : 1.0.7898.*</version>
    [DataContract]
    public class TabCounter
    {

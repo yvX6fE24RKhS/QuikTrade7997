@@ -12,7 +12,7 @@ namespace QuikTrade.DataTypes
    /// <summary>
    /// Журнал приложения.
    /// </summary>
-   /// <version>1.0.7901.* : 1.0.7881.*</version>
+   /// <version>1.0.7983.* : 1.0.7901.*</version>
    public class Log : ILog
    {
       #region Fields
@@ -83,8 +83,8 @@ namespace QuikTrade.DataTypes
       /// <param name="logEvent">Запись о событии.</param>
       public void Append(LogEvent logEvent)
       {
-         this.LastEvent = logEvent;
-         this.LogEvents.Add(logEvent);
+         LastEvent = logEvent;
+         LogEvents.Add(logEvent);
       }
 
       /// <summary>
@@ -172,7 +172,7 @@ namespace QuikTrade.DataTypes
             
             Log log = ReadXml(_date);
 
-            foreach (LogEvent logEvent in this.LogEvents)
+            foreach (LogEvent logEvent in LogEvents)
                log.LogEvents.Add(logEvent);
 
             if (log.LogEvents != null)
@@ -230,7 +230,7 @@ namespace QuikTrade.DataTypes
 
             Log log = ReadJson(_date);
 
-            foreach (LogEvent logEvent in this.LogEvents)
+            foreach (LogEvent logEvent in LogEvents)
                log.LogEvents.Add(logEvent);
 
             if (log.LogEvents != null)

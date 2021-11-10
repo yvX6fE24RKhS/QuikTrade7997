@@ -6,7 +6,7 @@ namespace QuikTrade.ViewModels.Commands
    /// <summary>
    /// Команды модели представления.
    /// </summary>
-   /// <version>1.0.7898.* : 1.0.7871.*</version>
+   /// <version>1.0.7983.* : 1.0.7898.*</version>
    public partial class ViewModelCommands 
    {
       #region Properties

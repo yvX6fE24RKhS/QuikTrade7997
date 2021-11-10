@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace QuikTrade.ViewModels
+namespace QuikTrade.ViewModels.Interfaces
 {
    /// <summary>
    /// Интерфейс модели представления рабочего пространства.
    /// </summary>
-   /// <version>1.0..* : 1.0..*</version>
-   public interface IWorkspaceViewModel
+   /// <version>1.0.7983.* : 1.0.7983.*</version>
+   public interface IWorkspaceViewModel : IViewModel
    {
       #region Properties
 

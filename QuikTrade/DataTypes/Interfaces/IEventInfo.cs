@@ -5,7 +5,7 @@ namespace QuikTrade.DataTypes.Interfaces
    /// <summary>
    /// Интерфейс класса описания события.
    /// </summary>
-   /// <version>1.0.7878.* : none</version>
+   /// <version>1.0.7983.* : 1.0.7878.*</version>
    public interface IEventInfo
    {
       #region Properties

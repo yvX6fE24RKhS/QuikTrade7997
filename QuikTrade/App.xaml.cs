@@ -12,7 +12,7 @@ namespace QuikTrade
    /// <summary>
    /// Логика взаимодействия для App.xaml
    /// </summary>
-   /// <version>1.0.7898.* : 1.0.7881.*</version>
+   /// <version>1.0.7983.* : 1.0.7898.*</version>
    public partial class App : Application
    {
       #region Properties
@@ -20,7 +20,7 @@ namespace QuikTrade
       /// <summary>
       /// Журнал текущей сессии.
       /// </summary>
-      public static Log Log { get; set; }
+      internal static Log Log { get; set; }
 
       /// <summary>
       /// Модель представления основного окна.

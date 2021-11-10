@@ -6,7 +6,7 @@ namespace QuikTrade.Utilities
    /// <summary>
    /// Описание события.
    /// </summary>
-   /// <version>1.0.7878.* : none</version>
+   /// <version>1.0.7983.* : 1.0.7878.*</version>
    internal class EventInfo : IEventInfo
    {
       #region Properties

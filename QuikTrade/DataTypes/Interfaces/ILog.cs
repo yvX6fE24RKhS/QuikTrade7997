@@ -6,7 +6,7 @@ namespace QuikTrade.DataTypes.Interfaces
    /// <summary>
    /// Интерфейс класса журнала приложения.
    /// </summary>
-   /// <version>1.0.7901.* : 1.0.7881.*</version>
+   /// <version>1.0.7983.* : 1.0.7901.*</version>
    public interface ILog
    {
       #region Properties
