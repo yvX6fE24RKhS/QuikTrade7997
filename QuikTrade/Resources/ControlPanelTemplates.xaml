@@ -1,0 +1,39 @@
+﻿<!-- <version>1.0.7991.* : 1.0.7991.*</version> -->
+<ResourceDictionary  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:u="clr-namespace:QuikTrade.Utilities"
+                     xmlns:ivm="clr-namespace:QuikTrade.ViewModels.Interfaces"
+                     xmlns:vm="clr-namespace:QuikTrade.ViewModels"
+                     >
+   <u:ControlPanelTemplateSelector x:Key="{x:Type u:ControlPanelTemplateSelector}"/>
+
+   <!--Шаблон размещения элементов на контрольной панели по умолчанию.-->
+   <DataTemplate x:Key="IControlPanel" DataType="{x:Type ivm:IWorkspaceViewModel}">
+      <Rectangle Fill="Green"/>
+   </DataTemplate>
+
+   <!--Шаблон размещения элементов на контрольной панели для тестовой вкладки.-->
+   <DataTemplate x:Key="SampleControlPanel" DataType="{x:Type vm:SampleWorkspaceViewModel}">
+      <StackPanel>
+         <TextBlock Text="{Binding Header}"/>
+         <TextBlock Text=" Uid: "/>
+         <TextBlock Text="{Binding Uid}"/>
+      </StackPanel>
+   </DataTemplate>
+
+   <!--Шаблон размещения элементов на контрольной панели для журнала.-->
+   <DataTemplate x:Key="LogControlPanel" DataType="{x:Type vm:LogWorkspaceViewModel}">
+      <Rectangle Fill="Blue"/>
+   </DataTemplate>
+
+   <!--Шаблон размещения контрольной панели в главном окне.-->
+   <DataTemplate x:Key="ControlPanelTemplate">
+      <ContentControl
+                  Content="{Binding Path=SelectedTab}" 
+                  ContentTemplateSelector="{StaticResource {x:Type u:ControlPanelTemplateSelector}}"
+                  Margin="4"
+                  />
+      <!--Style="{DynamicResource TabControlStyle}"-->
+   </DataTemplate>
+
+</ResourceDictionary>

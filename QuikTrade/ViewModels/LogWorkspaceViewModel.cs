@@ -6,9 +6,9 @@ namespace QuikTrade.ViewModels
    /// <summary>
    /// Вкладка журнала событий.
    /// </summary>
-   /// <version>1.0.7983.* : 1.0.7983.*</version>
+   /// <version>1.0.7991.* : 1.0.7983.*</version>
    [DataContract]
-   public class TabItemLogViewModel : WorkspaceViewModel
+   public class LogWorkspaceViewModel : WorkspaceViewModel
    {
       #region Fields
 
@@ -38,15 +38,15 @@ namespace QuikTrade.ViewModels
       #region Constructors
 
       /// <summary>
-      /// Инициализирует новый экземпляр класса <see cref="TabItemLogViewModel"/> содержащий журнал текущей сессии.
+      /// Инициализирует новый экземпляр класса <see cref="LogWorkspaceViewModel"/> содержащий журнал текущей сессии.
       /// </summary>
-      public TabItemLogViewModel() => this.Log = App.Log;
+      public LogWorkspaceViewModel() => this.Log = App.Log;
 
       /// <summary>
-      /// Инициализирует новый экземпляр класса <see cref="TabItemLogViewModel"/> содержащий журнал из архива. 
+      /// Инициализирует новый экземпляр класса <see cref="LogWorkspaceViewModel"/> содержащий журнал из архива. 
       /// </summary>
       /// <param name="log">Журнал из архива.</param>
-      public TabItemLogViewModel(Log log)
+      public LogWorkspaceViewModel(Log log)
       {
          Log = log;
       }

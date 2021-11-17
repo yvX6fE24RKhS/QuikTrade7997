@@ -7,9 +7,8 @@ namespace QuikTrade.Utilities
    /// <summary>
    /// Предоставляет способ выбрать System.Windows.DataTemplate на основе объекта данных и элемента с привязкой к данным.
    /// </summary>
-   /// <remarks>>author: Роман Мейтес</remarks>
-   /// <version>1.0.7983.* : 1.0.7983.*</version>
-   public class DefaultTemplateSelector : DataTemplateSelector
+   /// <version>1.0.7991.* : 1.0.7991.*</version>
+   public class ControlPanelTemplateSelector : DataTemplateSelector
    {
       /// <summary>
       /// При переопределении в производном классе возвращает System.Windows.DataTemplate на основе пользовательской логики.
@@ -21,8 +20,8 @@ namespace QuikTrade.Utilities
       {
          if (container is FrameworkElement fe && item != null)
          {
-            Type itemType = item.GetType();
-            return fe.TryFindResource(itemType) as DataTemplate;
+            string resourceKey = item.GetType().Name.Replace("WorkspaceViewModel", "ControlPanel");
+            return fe.TryFindResource(resourceKey) as DataTemplate;
          };
          return base.SelectTemplate(item, container);
       }

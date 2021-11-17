@@ -5,9 +5,9 @@ namespace QuikTrade.ViewModels
    /// <summary>
    /// Пример вкладки.
    /// </summary>
-   /// <version>1.0.7983.* : 1.0.7900.*</version>
+   /// <version>1.0.7991.* : 1.0.7983.*</version>
    [DataContract]
-   public class TabItemSampleViewModel : WorkspaceViewModel
+   public class SampleWorkspaceViewModel : WorkspaceViewModel
    {
       #region Fields
 

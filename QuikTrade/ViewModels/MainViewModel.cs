@@ -18,10 +18,10 @@ namespace QuikTrade.ViewModels
    /// <summary>
    /// Модель представления основного окна.
    /// </summary>
-   /// <version>1.0.7983.* : 1.0.7898.*</version>
+   /// <version>1.0.7991.* : 1.0.7983.*</version>
    [DataContract]
-   [KnownType(typeof(TabItemSampleViewModel))]
-   [KnownType(typeof(TabItemLogViewModel))]
+   [KnownType(typeof(SampleWorkspaceViewModel))]
+   [KnownType(typeof(LogWorkspaceViewModel))]
 
    public class MainViewModel : ViewModel
    {
@@ -134,8 +134,8 @@ namespace QuikTrade.ViewModels
             WorkspaceTypes = new Dictionary<string, TabCounter>();
          }
 
-         AddWorkspaceType(nameof(TabItemSampleViewModel), TabCounter.MaxCountDefault);
-         AddWorkspaceType(nameof(TabItemLogViewModel), 1);
+         AddWorkspaceType(nameof(SampleWorkspaceViewModel), TabCounter.MaxCountDefault);
+         AddWorkspaceType(nameof(LogWorkspaceViewModel), 1);
 
          if (Workspaces == null)
          {
@@ -176,9 +176,9 @@ namespace QuikTrade.ViewModels
 
          this[ViewModelCommands.TestCommand].Executed += (sender, args) => ViewModelCommands.RunTest();
 
-         this[ViewModelCommands.CreateTabSampleCommand].Executed += (sender, args) => ViewModelCommands.CreateTab(typeof(TabItemSampleViewModel));
+         this[ViewModelCommands.CreateTabSampleCommand].Executed += (sender, args) => ViewModelCommands.CreateTab(typeof(SampleWorkspaceViewModel));
 
-         this[ViewModelCommands.LogShowCommand].Executed += (sender, args) => ViewModelCommands.CreateTab(typeof(TabItemLogViewModel));
+         this[ViewModelCommands.LogShowCommand].Executed += (sender, args) => ViewModelCommands.CreateTab(typeof(LogWorkspaceViewModel));
 
          this[ViewModelCommands.CloseAllTabsCommand].Executed += (sender, args) => ViewModelCommands.CloseAllTabs(sender, args);
 

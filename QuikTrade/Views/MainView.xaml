@@ -1,4 +1,4 @@
-﻿<!-- <version>1.0.7983.* : 1.0.7901.*</version> -->
+﻿<!-- <version>1.0.7991.* : 1.0.7983.*</version> -->
 <Window  x:Class="QuikTrade.Views.MainView"
          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -47,7 +47,9 @@
                   Width="{Binding MainControlPanelWidth, Mode=TwoWay}" 
                   MinWidth="0" 
                   >
-               <Rectangle Fill="Black"/>
+               <ContentControl   Content="{Binding}"
+                                 ContentTemplate="{StaticResource ControlPanelTemplate}"
+                                 />
             </Grid>
             <osc:DockPanelSplitter DockPanel.Dock="Left" Style="{StaticResource VerticalBevelGripStyle}"/>
             <Grid Name="MainWorkspace">

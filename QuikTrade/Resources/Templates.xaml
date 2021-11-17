@@ -1,48 +1,11 @@
-﻿<!-- <version>1.0.7983.* : 1.0.7901.*</version> -->
+﻿<!-- <version>1.0.7991.* : 1.0.7983.*</version> -->
 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:u="clr-namespace:QuikTrade.Utilities"
-                    xmlns:ivm="clr-namespace:QuikTrade.ViewModels.Interfaces"
-                    xmlns:vm="clr-namespace:QuikTrade.ViewModels"
                     >
-   <u:DefaultTemplateSelector x:Key="{x:Type u:DefaultTemplateSelector}"/>
-
-
-   <!--Шаблон размещения информации по умолчанию в рабочей области.-->
-   <DataTemplate x:Key="{x:Type ivm:IWorkspaceViewModel}" DataType="{x:Type ivm:IWorkspaceViewModel}">
-      <TextBlock Text="{Binding Uid}"/>
-   </DataTemplate>
-
-   <!--Шаблон размещения тестовой вкладки в рабочей области.-->
-   <DataTemplate x:Key="{x:Type vm:TabItemSampleViewModel}" DataType="{x:Type vm:TabItemSampleViewModel}">
-      <StackPanel Orientation="Horizontal">
-         <TextBlock Text="{Binding Header}"/>
-         <TextBlock Text=" Uid: "/>
-         <TextBlock Text="{Binding Uid}"/>
-      </StackPanel>
-   </DataTemplate>
-
-   <!--Шаблон размещения журнала в рабочей области.-->
-   <DataTemplate x:Key="{x:Type vm:TabItemLogViewModel}" DataType="{x:Type vm:TabItemLogViewModel}">
-      <StackPanel>
-         <TextBlock Text="{Binding Header}"/>
-         <DataGrid Name="dgLog"
-                     ItemsSource="{Binding Path=Log.LogEvents}"
-                     Margin="4"
-                     />
-      </StackPanel>
-   </DataTemplate>
-
-   <!--Шаблон размещения рабочей области в главном окне.-->
-   <DataTemplate x:Key="WorkspacesTemplate">
-      <TabControl Name="MainTab"
-                  ItemsSource="{Binding Path=Workspaces}" 
-                  ContentTemplateSelector="{StaticResource {x:Type u:DefaultTemplateSelector}}"
-                  Style="{DynamicResource TabControlStyle}"
-                  Margin="4"
-                  />
-      <!--ItemTemplate="{StaticResource {x:Type ivm:IWorkspaceViewModel}}"-->
-   </DataTemplate>
+   <ResourceDictionary.MergedDictionaries>
+      <ResourceDictionary Source="/QuikTrade;component/Resources/WorkspaceTemplates.xaml"/>
+      <ResourceDictionary Source="/QuikTrade;component/Resources/ControlPanelTemplates.xaml"/>
+   </ResourceDictionary.MergedDictionaries>
 
    <!--Шаблон размещения элементов в строке состояния.-->
    <DataTemplate x:Key="StatusBarTemplate">
