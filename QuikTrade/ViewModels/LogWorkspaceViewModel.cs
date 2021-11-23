@@ -1,4 +1,6 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using System.Runtime.Serialization;
+using System.Windows;
 using QuikTrade.DataTypes;
 
 namespace QuikTrade.ViewModels
@@ -28,6 +30,18 @@ namespace QuikTrade.ViewModels
       #endregion Base Class Overrides
 
       /// <summary>
+      /// Положение переключателя на панели управления.
+      /// </summary>
+      [IgnoreDataMember]
+      public int SelectedIndex { get; set; } = 0;
+
+      /// <summary>
+      /// Дата журнала.
+      /// </summary>
+      [IgnoreDataMember]
+      public DateTime LogDate { get; set; } = DateTime.Today;
+
+      /// <summary>
       /// Журнал.
       /// </summary>
       [IgnoreDataMember]
@@ -40,7 +54,7 @@ namespace QuikTrade.ViewModels
       /// <summary>
       /// Инициализирует новый экземпляр класса <see cref="LogWorkspaceViewModel"/> содержащий журнал текущей сессии.
       /// </summary>
-      public LogWorkspaceViewModel() => this.Log = App.Log;
+      public LogWorkspaceViewModel() => Log = App.Log;
 
       /// <summary>
       /// Инициализирует новый экземпляр класса <see cref="LogWorkspaceViewModel"/> содержащий журнал из архива. 
@@ -60,9 +74,15 @@ namespace QuikTrade.ViewModels
       [OnDeserialized]
       void OnDeserialized(StreamingContext context)
       {
-         this.Log = App.Log;
+         Log = App.Log;
+         LogDate = DateTime.Today;
       }
 
+      private void CheckBox_Click(object sender, RoutedEventArgs e)
+      {
+         MessageBox.Show("DEBUG");
+      }
+      
       #endregion Methods
    }
 }

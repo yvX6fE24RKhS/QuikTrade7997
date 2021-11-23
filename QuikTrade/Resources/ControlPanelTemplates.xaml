@@ -4,8 +4,22 @@
                      xmlns:u="clr-namespace:QuikTrade.Utilities"
                      xmlns:ivm="clr-namespace:QuikTrade.ViewModels.Interfaces"
                      xmlns:vm="clr-namespace:QuikTrade.ViewModels"
+                     xmlns:enums="clr-namespace:QuikTrade.DataTypes.Enums"
+                     xmlns:ext="clr-namespace:QuikTrade.Utilities.Extensions"
+                     xmlns:conv="clr-namespace:QuikTrade.Utilities.Converters"
                      >
    <u:ControlPanelTemplateSelector x:Key="{x:Type u:ControlPanelTemplateSelector}"/>
+   <conv:IntToVisibilityConverter x:Key="IntToVisibilityConverter" />
+
+   <!--Шаблон размещения контрольной панели в главном окне.-->
+   <DataTemplate x:Key="ControlPanelTemplate">
+      <ContentControl
+                  Content="{Binding Path=SelectedTab}" 
+                  ContentTemplateSelector="{StaticResource {x:Type u:ControlPanelTemplateSelector}}"
+                  Margin="4"
+                  />
+      <!--Style="{DynamicResource TabControlStyle}"-->
+   </DataTemplate>
 
    <!--Шаблон размещения элементов на контрольной панели по умолчанию.-->
    <DataTemplate x:Key="IControlPanel" DataType="{x:Type ivm:IWorkspaceViewModel}">
@@ -23,17 +37,35 @@
 
    <!--Шаблон размещения элементов на контрольной панели для журнала.-->
    <DataTemplate x:Key="LogControlPanel" DataType="{x:Type vm:LogWorkspaceViewModel}">
-      <Rectangle Fill="Blue"/>
-   </DataTemplate>
-
-   <!--Шаблон размещения контрольной панели в главном окне.-->
-   <DataTemplate x:Key="ControlPanelTemplate">
-      <ContentControl
-                  Content="{Binding Path=SelectedTab}" 
-                  ContentTemplateSelector="{StaticResource {x:Type u:ControlPanelTemplateSelector}}"
-                  Margin="4"
+      <StackPanel>
+         <ListBox x:Name="lbxLogSelector"
+                  ItemsSource="{Binding Source={ext:EnumBindingSource {x:Type enums:LogSelector}}}"
+                  SelectedIndex="{Binding SelectedIndex}"
+                  Background="Transparent"
+                  ItemContainerStyle="{DynamicResource RadioButtonStyle}"
                   />
-      <!--Style="{DynamicResource TabControlStyle}"-->
+
+         <DatePicker SelectedDate="{Binding LogDate, Mode=TwoWay}" 
+                     Visibility="{Binding ElementName=lbxLogSelector, 
+                                          Path=SelectedIndex, 
+                                          UpdateSourceTrigger=PropertyChanged, 
+                                          Converter={StaticResource IntToVisibilityConverter}, ConverterParameter=1}"
+                                          />
+
+         <ListBox x:Name="lbxInitiator"
+                  ItemsSource="{Binding Source={ext:EnumBindingSource {x:Type enums:Initiator}}}"
+                  SelectionMode="Extended"
+                  Background="Transparent"
+                  ItemContainerStyle="{DynamicResource CheckBoxStyle}"
+                  />
+
+         <ListBox x:Name="lbxSeverity"
+                  ItemsSource="{Binding Source={ext:EnumBindingSource {x:Type enums:Severity}}}"
+                  SelectionMode="Extended"
+                  Background="Transparent"
+                  ItemContainerStyle="{DynamicResource CheckBoxStyle}"
+                  />
+      </StackPanel>
    </DataTemplate>
 
 </ResourceDictionary>

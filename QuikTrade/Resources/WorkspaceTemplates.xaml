@@ -7,6 +7,17 @@
                      >
    <u:WorkspaceTemplateSelector x:Key="{x:Type u:WorkspaceTemplateSelector}"/>
 
+   <!--Шаблон размещения рабочей области в главном окне.-->
+   <DataTemplate x:Key="WorkspacesTemplate">
+      <TabControl Name="MainTab"
+                  ItemsSource="{Binding Path=Workspaces}" 
+                  ContentTemplateSelector="{StaticResource {x:Type u:WorkspaceTemplateSelector}}"
+                  Style="{DynamicResource TabControlStyle}"
+                  Margin="4"
+                  />
+      <!--ItemTemplate="{StaticResource {x:Type ivm:IWorkspaceViewModel}}"-->
+   </DataTemplate>
+   
    <!--Шаблон размещения информации по умолчанию в рабочей области.-->
    <DataTemplate x:Key="{x:Type ivm:IWorkspaceViewModel}" DataType="{x:Type ivm:IWorkspaceViewModel}">
       <TextBlock Text="{Binding Uid}"/>
@@ -30,16 +41,5 @@
                      Margin="4"
                      />
       </StackPanel>
-   </DataTemplate>
-
-   <!--Шаблон размещения рабочей области в главном окне.-->
-   <DataTemplate x:Key="WorkspacesTemplate">
-      <TabControl Name="MainTab"
-                  ItemsSource="{Binding Path=Workspaces}" 
-                  ContentTemplateSelector="{StaticResource {x:Type u:WorkspaceTemplateSelector}}"
-                  Style="{DynamicResource TabControlStyle}"
-                  Margin="4"
-                  />
-      <!--ItemTemplate="{StaticResource {x:Type ivm:IWorkspaceViewModel}}"-->
    </DataTemplate>
 </ResourceDictionary>

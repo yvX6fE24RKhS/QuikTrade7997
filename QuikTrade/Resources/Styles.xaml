@@ -252,4 +252,35 @@
          </Setter.Value>
       </Setter>
    </Style>
+
+   <!-- Styling the ListBoxItem with CheckBox -->
+   <Style x:Key="CheckBoxStyle" TargetType="{x:Type ListBoxItem}">
+      <Setter Property="Template">
+         <Setter.Value>
+            <ControlTemplate>
+               <CheckBox   Content="{TemplateBinding ContentPresenter.Content}"
+                           IsChecked="{Binding  Path=IsSelected,
+                                                RelativeSource={RelativeSource TemplatedParent},
+		                                          Mode=TwoWay}" 
+                                                />
+            </ControlTemplate>
+         </Setter.Value>
+      </Setter>
+   </Style>
+
+   <!-- Styling the ListBoxItem with RadioButton -->
+   <Style x:Key="RadioButtonStyle" TargetType="{x:Type ListBoxItem}">
+      <Setter Property="Template">
+         <Setter.Value>
+            <ControlTemplate>
+               <RadioButton   Content="{TemplateBinding ContentPresenter.Content}"
+		                        IsChecked="{Binding  Path=IsSelected,
+		                                             RelativeSource={RelativeSource TemplatedParent},
+		                                             Mode=TwoWay}" 
+                                                   />
+            </ControlTemplate>
+         </Setter.Value>
+      </Setter>
+   </Style>
+
 </ResourceDictionary>

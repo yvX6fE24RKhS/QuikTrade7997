@@ -93,6 +93,17 @@ namespace QuikTrade.ViewModels
       }
 
       #endregion Workspaces
+
+      #region ControlPanel
+
+      /// <summary>
+      /// Фильтр выбранных инициаторов событий для просмотра журнала.
+      /// </summary>
+      [DataMember]
+      public int SelectedInitiators { get; set; }
+
+      #endregion ControlPanel
+
       #endregion Properties
 
       #region Constructors
@@ -174,7 +185,8 @@ namespace QuikTrade.ViewModels
             )
          );
 
-         this[ViewModelCommands.TestCommand].Executed += (sender, args) => ViewModelCommands.RunTest();
+//         this[ViewModelCommands.TestCommand].Executed += (sender, args) => ViewModelCommands.RunTest();
+         this[ViewModelCommands.TestCommand].Executed += (sender, args) => ViewModelCommands.RunTest1(sender, args);
 
          this[ViewModelCommands.CreateTabSampleCommand].Executed += (sender, args) => ViewModelCommands.CreateTab(typeof(SampleWorkspaceViewModel));
 

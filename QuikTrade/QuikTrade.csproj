@@ -113,7 +113,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataTypes\Enums\LogSelector.cs" />
     <Compile Include="Utilities\ControlPanelTemplateSelector.cs" />
+    <Compile Include="Utilities\Converters\EnumDescriptionTypeConverter.cs" />
+    <Compile Include="Utilities\Converters\IntToVisibilityConverter.cs" />
+    <Compile Include="Utilities\Extensions\EnumBindingSourceExtension.cs" />
     <Compile Include="ViewModels\Commands\ViewModelCommands.cs" />
     <Compile Include="ViewModels\Commands\ViewModelCommands.RunTest.cs" />
     <Compile Include="ViewModels\Commands\ViewModelCommands.TabCommands.cs" />
